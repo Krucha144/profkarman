@@ -852,5 +852,14 @@ function articlePage(){const n=news.find(x=>x.id===article);return `<div class="
 function render(){let content=article!==null?articlePage():screen==='home'?home():screen==='partners'?partnersPage():screen==='join'?joinPage():faqItem!==null?faqReader():faqPage();document.getElementById('app').innerHTML=content}
 render();
 </script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/profkarman/sw.js')
+        .then(registration => console.log('SW registered'))
+        .catch(err => console.log('SW registration failed', err));
+    });
+  }
+  </script>
 </body>
 </html>
